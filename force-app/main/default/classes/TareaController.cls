@@ -13,7 +13,10 @@ public with sharing class TareaController {
         }
      }
 
-    public Void addTarea(Tarea tarea){ listTarea.add(tarea); }
+    public Void addTarea(Tarea task){ 
+        assignId(Tarea task);
+        listTarea.add(tarea); 
+    }
 
     public List<Tarea> getTarea(){ return listTarea; }
 
@@ -30,6 +33,4 @@ public with sharing class TareaController {
      public Void updateDescripcion(Tarea task, String newDescription){ task.setDescripcion(newDescription); }
 
      public Void updateState(Tarea task){ task.changeState()} 
-
-
 }
