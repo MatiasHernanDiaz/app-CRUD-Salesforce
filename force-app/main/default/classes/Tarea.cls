@@ -3,12 +3,11 @@ public with sharing class Tarea {
     private Integer id = null;
     private String titulo;
     private String descripcion;
-    private Boolean completo;
+    private Boolean completo = false;
     
-    public Tarea() {
+    public Tarea(String titulo, String descripcion) {
         this.titulo = titulo;
-        this.descripcion descripcion;
-        this.completo = false;
+        this.descripcion = descripcion;
     }
 
     public Integer getId(){ return id; }
