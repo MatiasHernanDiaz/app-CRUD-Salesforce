@@ -24,5 +24,13 @@ london
 &key=
 95uq9y9gdk9gdw04a3ni5io9q0pvoqzd0gr5fsir
 
--province
-3835994
+# buscar temp
+https://www.meteosource.com/api/v1/free/
+point?sections=current&language=en&units=auto&place_id=cordoba-3530240&key=95uq9y9gdk9gdw04a3ni5io9q0pvoqzd0gr5fsir
+
+# buscar place_id
+https://www.meteosource.com/api/v1/free/
+find_places?language=en&text=cordoba&key=95uq9y9gdk9gdw04a3ni5io9q0pvoqzd0gr5fsir
+
+
+# https://www.weatherapi.com/
