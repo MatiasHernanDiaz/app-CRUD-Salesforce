@@ -11,14 +11,21 @@ public with sharing class WeatherService {
         request.setMethod('GET');
         HttpResponse response = http.send(request);
         System.debug(response.getStatusCode());
+
+        try{
+            if(response.getStatusCode() == 200) {
+                jsonParser = JSON2Apex.parse(response.getBody());
+                system.debug(jsonParser.timezone);   
+            }
+            else{
+                throw new BussinesException('Error codigo: ' + response.getBody() + ' datos no encontrados');
+            }
+        } 
+        catch (Exception e) {
+            e.getMessage();
+        }
         
-        if(response.getStatusCode() == 200) {
-            jsonParser = JSON2Apex.parse(response.getBody());
-            system.debug(jsonParser.timezone);   
-        }
-        else{
-            throw new BussinesException('Nombre de ciudad no encontrado');
-        }
+        
         return jsonParser;
     }
 }

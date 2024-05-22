@@ -14,6 +14,7 @@ private with sharing class WeatherServiceTest {
             Test.startTest();
             JSON2Apex respuesta = WeatherService.getData(1.00, 1.00);
             Test.stopTest();
+            //Assert.fail(Exception BussinesException);
         } catch (BussinesException e) {
             Assert.areEqual('Nombre de ciudad no encontrado', e.getMessage(), 'El mensaje de error debe ser el mismo');
         }
