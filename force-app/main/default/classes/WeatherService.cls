@@ -7,7 +7,7 @@ public with sharing class WeatherService {
 
         Http http = new Http();
         HttpRequest request = new HttpRequest();
-        request.setEndpoint(api.URL_weather__c + 'lat=' + lat + '&lon='+ lon + '&key=' + api.key__c);
+        request.setEndpoint(api.URL_weather__c + 'units=us&lat=' + lat + '&lon='+ lon + '&key=' + api.key__c);
         request.setMethod('GET');
         HttpResponse response = http.send(request);
         System.debug(response.getStatusCode());

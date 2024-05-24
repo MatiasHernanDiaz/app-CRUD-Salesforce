@@ -25,8 +25,15 @@ london
 95uq9y9gdk9gdw04a3ni5io9q0pvoqzd0gr5fsir
 
 # buscar temp
-https://www.meteosource.com/api/v1/free/
-point?sections=current&language=en&units=auto&place_id=cordoba-3530240&key=95uq9y9gdk9gdw04a3ni5io9q0pvoqzd0gr5fsir
+
+
+https://www.meteosource.com/api/v1/free/point?sections=current&language=en&units=auto&
+lat=12N
+&lon=12E
+&key=
+95uq9y9gdk9gdw04a3ni5io9q0pvoqzd0gr5fsir
+
+https://www.meteosource.com/api/v1/free/point?sections=current&language=en&units=auto&lat=30.198208&lon=-97.805982&key=95uq9y9gdk9gdw04a3ni5io9q0pvoqzd0gr5fsir
 
 # buscar place_id
 https://www.meteosource.com/api/v1/free/

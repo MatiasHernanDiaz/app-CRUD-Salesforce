@@ -4,7 +4,7 @@
     <protected>false</protected>
     <values>
         <field>URL_weather__c</field>
-        <value xsi:type="xsd:string">https://www.meteosource.com/api/v1/free/point?sections=current&amp;language=en&amp;units=auto&amp;</value>
+        <value xsi:type="xsd:string">https://www.meteosource.com/api/v1/free/point?sections=current&amp;language=en&amp;</value>
     </values>
     <values>
         <field>key__c</field>
