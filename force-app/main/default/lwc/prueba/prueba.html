@@ -1,9 +1,21 @@
 <template>
     <lightning-card title="ContactInformation" icon-name="custom:custom14" onload={handleOnload}>
-        <div class="slds-m-around_medium">
-           {dato.data}
-           
-           
+        <div class="slds-m-around_medium" >
+         
+            {datosClima.customerData.data}
+            
+         <!--
+
+             <ul class="slds-m-around_medium">
+    
+                <template for:each={datosClima.data} for:item="dato">
+                   <li key={dato}>{dato}</li>
+                 </template>
+             </ul>
+         -->
+         
+
+         
         </div>
      </lightning-card>
 </template>
