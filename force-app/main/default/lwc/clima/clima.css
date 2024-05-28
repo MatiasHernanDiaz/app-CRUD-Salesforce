@@ -1,0 +1,17 @@
+.weather{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.weather div p span{
+    font-weight:700;
+}
+
+.error{
+    display: flex;
+    justify-content: space-evenly;
+    background-color: #cd354e;
+    color: aliceblue;
+    font-weight:700;
+}
+

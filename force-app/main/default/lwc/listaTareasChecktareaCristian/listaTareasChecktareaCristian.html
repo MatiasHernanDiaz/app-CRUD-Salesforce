@@ -1,0 +1,49 @@
+<template>
+    <lightning-card title="Lista de tareas" icon-name="custom:custom14">
+        <ul class="slds-m-around_medium">
+          <template for:each={tareas} for:item="tarea">
+
+            
+            
+            
+
+                <template if:true={tarea.cumplida}>
+                    <li key={tarea.id} class= 'completa'>
+                        {tarea.name} 
+                        <lightning-input data-id={tarea.id} value={tarea.id} type="checkbox" label="checkbox" onchange={handleChange} checked={tarea.cumplida}></lightning-input>
+                    </li>
+                </template>
+
+                <template if:false={tarea.cumplida}>
+                    <li key={tarea.name} class= 'falta'>
+                        {tarea.name} 
+                        <lightning-input data-id={tarea.id} value={tarea.id} type="checkbox" label="checkbox" onchange={handleChange} checked={tarea.cumplida}></lightning-input>
+                    </li>
+                </template>
+            
+            
+            
+            
+            <!-- 
+                
+                     <li key={tarea.id} class= {claseTarea}>
+                         {tarea.name} 
+                         <lightning-input data-id={tarea.id} value={tarea.id} type="checkbox" label="checkbox" onchange={handleChange} checked={tarea.cumplida}></lightning-input>
+                     </li>
+
+            -->
+
+           
+            
+            
+            
+            
+         
+        
+
+          </template>
+        </ul>
+      </lightning-card>
+</template>
+
+
