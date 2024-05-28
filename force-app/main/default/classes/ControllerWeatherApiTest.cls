@@ -34,4 +34,20 @@ private with sharing class ControllerWeatherApiTest {
         //Assert
         Assert.areEqual(jsonEsperado, jsonObtenido, 'Json esperado y Json obtenido deberian ser iguales');
     }
+
+    @isTest
+    public static Void getDataTemFailTest(){
+        try{
+            Test.startTest();
+            String jsonObtenido = ControllerWeatherApi.getDataTem('failID');
+            System.debug(jsonObtenido);
+            Test.stopTest();
+        }
+        catch(AuraHandledException e){
+            //Assert
+            Assert.areEqual( 'Script-thrown exception', e.getMessage(), 'Espera un error');
+        }
+
+    }
+
 }

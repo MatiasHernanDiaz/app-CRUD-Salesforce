@@ -17,10 +17,12 @@ global class WeatherServiceHttpCalloutMock implements HttpCalloutMock {
             response.setStatusCode(200);
         }
         else if(statusCode == 400){
-            response.setBody('Sin datos');
+            response.setStatusCode(400);
+            response.setBody('');
         }
         else {
-            response.setBody('Error en la consulta a servidor');
+            response.setStatusCode(500);
+            response.setBody('');
         }
         
         return response;
