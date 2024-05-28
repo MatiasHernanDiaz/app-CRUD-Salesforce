@@ -16,11 +16,11 @@ public with sharing class WeatherService {
                 system.debug(jsonParser.timezone);   
             }
             else{
-                throw new BussinesException('Error codigo: ' + response.getBody() + ' datos no encontrados');
+                throw new BussinesException('Error codigo: ' + response.getStatusCode());
             }
         } 
         catch (Exception e) {
-            e.getMessage();
+            throw e;
         }
         return jsonParser;
     }

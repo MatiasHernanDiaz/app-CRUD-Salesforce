@@ -11,14 +11,10 @@ export default class Clima extends LightningElement {
     @wire (getDataTem, {id: "$recordId"})
     wiredTemperature({data, error}) {
         if (data) {
-            console.log("antes del paseo " + this.data);
             this.datos = JSON.parse(data);
-            console.log("despues del paseo " + this.data);
             this.error = undefined;
         } else if (error) {
-            console.log("error " + this.error);
             this.error = error;
-            console.log(this.error.statusText);
             this.data = undefined;
         }
     }
