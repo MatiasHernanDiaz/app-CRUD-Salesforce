@@ -3,21 +3,25 @@ public with sharing class ControllerWeatherApi {
     class Clima{
         public Double temperature;
         public Double speed;
-        public Double precipitation;
-        Clima(Double temperature, Double speed, Double precipitation){
+        public Integer cloudCover;
+        public Integer icon;
+        public String urlIcon = 'https://www.meteosource.com/static/img/ico/weather/'; 
+
+        Clima(Double temperature, Double speed, Integer cloudCover){
             this.temperature = temperature;
             this.speed = speed;
-            this.precipitation = precipitation;
+            this.cloudCover = cloudCover;
         }
 
+        public Void getUrlIcon(Integer iconNum){ 
+            icon = iconNum;
+            urlIcon = urlIcon + iconNum + '.svg';
+        }
     }
 
-    //@AuraEnabled(cacheable=true) //debería ser privado?
     public static Contact getLatLog(String id){
         try {
-
             return [SELECT MailingLatitude , MailingLongitude FROM  Contact WHERE id =: id with security_enforced];
-
         } catch (Exception e) {
             throw new AuraHandledException(e.getMessage());
         }
@@ -26,28 +30,21 @@ public with sharing class ControllerWeatherApi {
     @AuraEnabled(cacheable=true) //1ra en ejecutarse
     public static String getDataTem(String id){
         try {
-
             Contact contacto = getLatLog(id);
-
-            JSON2Apex datos = WeatherService.GetData(contacto.MailingLatitude, contacto.MailingLongitude);
-
-            Clima clima = new Clima(datos.current.temperature, datos.current.wind.speed, datos.current.precipitation.total);
-
-            //List<String> cadena = new List<String>{String.valueOf(datos.current.temperature), String.valueOf(datos.current.wind.speed), datos.current.wind.dir, String.valueOf(datos.current.precipitation.total)};
             
-            //String cadena = '{"temperatura" : ' + datos.current.temperature + '}';
-
-            String cadena = JSON.serialize(Clima);
-
-            return  cadena;
+                JSON2Apex datos = WeatherService.getData(contacto.MailingLatitude, contacto.MailingLongitude);
+                Clima clima = new Clima(datos.current.temperature, datos.current.wind.speed, datos.current.cloud_cover);
+                clima.getUrlIcon(datos.current.icon_num);
+                String cadena = JSON.serialize(Clima);
+                return  cadena;
+            
 
         } catch (Exception e) {
             throw new AuraHandledException(e.getMessage());
         }
     }
 
-    private static Clima clima(Double temperature, Double speed, Double precipitation){
-        
-        return new Clima(temperature, speed, precipitation);
+    private static Clima clima(Double temperature, Double speed, Integer cloudCover){
+        return new Clima(temperature, speed, cloudCover);
     }
 }

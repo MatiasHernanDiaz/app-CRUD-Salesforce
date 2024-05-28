@@ -1,9 +1,10 @@
 <template>
     <lightning-card title="Prueba clima" icon-name="custom:custom14" onload={handleOnload}>
         <div class="slds-m-around_medium" >
-         
-            {temperatura}
-            
+
+               temperatura: {datazo.temperature} {datazo.speed}
+               imagen: <img src={datazo.urlIcon}/>
+    
          <!--
 
              <ul class="slds-m-around_medium">
@@ -13,8 +14,6 @@
                  </template>
              </ul>
          -->
-         
-
          
         </div>
      </lightning-card>
