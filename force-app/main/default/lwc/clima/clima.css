@@ -13,6 +13,7 @@
     background-color: #cd354e;
     color: aliceblue;
     font-weight:700;
+    
 }
 
 .contenedor{
@@ -23,3 +24,12 @@
   @keyframes mymove {
     50% {border-color: lightblue;}
   }
+
+.ruedita{
+    display: grid;
+    place-items: center;
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+}
