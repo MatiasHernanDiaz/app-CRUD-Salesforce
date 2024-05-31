@@ -1,29 +1,31 @@
 <template>
-    <lightning-card  title="Weather">
-        <template if:true={datos.temperature}>
-            <lightning-button slot="actions" variant="base" label="Change Unit" onclick={handleClick}></lightning-button>
-            <div class="slds-p-horizontal_small weather">
-                <div>
-                    <p>
-                        <span> Temperatura: </span> {datos.temperature} {unidades}
-                    </p>
-                    <p>
-                        <span> Wind: </span> {datos.speed}    
-                    </p>
-                    <p>
-                        <span> Cloud cover: </span> {datos.cloudCover} %
-                    </p>
+    <div class="contenedor">
+        <lightning-card  title="Weather">
+            <template if:true={datos.temperature}>
+                <lightning-button slot="actions" variant="base" label="Change Unit" onclick={handleClick}></lightning-button>
+                <div class="slds-p-horizontal_small weather">
+                    <div>
+                        <p>
+                            <span> Temperatura: </span> {datos.temperature} {unidades}
+                        </p>
+                        <p>
+                            <span> Wind: </span> {datos.speed}    
+                        </p>
+                        <p>
+                            <span> Cloud cover: </span> {datos.cloudCover} %
+                        </p>
+                    </div>
+                    <div>
+                        <img src={datos.urlIcon}/>    
+                    </div>
                 </div>
-                <div>
-                    <img src={datos.urlIcon}/>    
+            </template>
+            <template if:false={datos.temperature}>
+                <div class="slds-p-horizontal_small error">
+                    {error.statusText}
+                    <p>Upps, no pudimos cargar la información</p>
                 </div>
-            </div>
-        </template>
-        <template if:false={datos.temperature}>
-            <div class="slds-p-horizontal_small error">
-                {error.statusText}
-                <p>Upps, no pudimos cargar la información</p>
-            </div>
-        </template>
-    </lightning-card>
+            </template>
+        </lightning-card>
+    </div>
 </template>
