@@ -13,5 +13,23 @@
     background-color: #cd354e;
     color: aliceblue;
     font-weight:700;
+    
 }
 
+.contenedor{
+    border: 7px solid rgb(34, 115, 173);
+    animation: mymove 5s infinite;
+  }
+
+  @keyframes mymove {
+    50% {border-color: lightblue;}
+  }
+
+.ruedita{
+    display: grid;
+    place-items: center;
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+}
